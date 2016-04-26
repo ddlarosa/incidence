@@ -20,10 +20,14 @@ require 'time'
 require 'yaml'
 require 'pp'
 
-EMAIL_CONFIG=YAML.load_file( '/home/david/Desktop/incidence/incidencepanel/config/email_config.yaml' )
+#EMAIL_CONFIG=YAML.load_file( '/home/david/Desktop/incidence/incidencepanel/config/email_config.yaml' )
 
 # Make sure that Ramaze knows where you are
 Ramaze.options.roots = [__DIR__]
+
+#EMAIL CONFIGURATION
+EMAIL_CONFIG=YAML.load_file( "#{Ramaze.options.roots[0]}/config/email_config.yaml" )
+
 
 # Initialize logger
 log_dir = "#{Ramaze.options.roots[0]}/log"
