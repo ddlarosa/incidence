@@ -1,0 +1,14 @@
+pkg
+.yardoc
+doc
+ydoc
+*~
+*.swp
+.redcar
+*.rbc
+database.db
+.rbx
+.idea/*
+*.iml
+.rbenv-version
+Gemfile.lock

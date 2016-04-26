@@ -1,0 +1,22 @@
+/usr/bin/ruby2.2 -r ./siteconf20160421-8450-ziw78v.rb extconf.rb
+checking for main() in -lpq... yes
+checking for libpq-fe.h... yes
+checking for PQsetSingleRowMode()... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling sequel_pg.c
+sequel_pg.c: In function ‘spg_timestamp_error’:
+sequel_pg.c:279:3: error: format not a string literal and no format arguments [-Werror=format-security]
+   rb_raise(rb_eArgError, error_msg);
+   ^
+sequel_pg.c: In function ‘spg__yield_each_row’:
+sequel_pg.c:855:11: warning: variable ‘conn’ set but not used [-Wunused-but-set-variable]
+   PGconn *conn;
+           ^
+cc1: some warnings being treated as errors
+make: *** [sequel_pg.o] Error 1
+
+make failed, exit code 2

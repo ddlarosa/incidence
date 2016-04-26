@@ -1,0 +1,44 @@
+<div classted_at="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Connections</h2>
+        <p>
+          <ul>
+           <li>#{ConnectionsController.a('New',:new)}</li>
+          </ul>
+        </p>
+        <div class="listing">
+          <table>
+            <thead>
+              <tr>
+                <th>Centro</th>
+                <th>Manager</th>
+                <th>Descripcion</th>
+                <th>Revisión Cableado</th>
+                <th>Envío de cable</th>
+                <th>Created at</th>
+                <th>Actions</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <?r @connections.each do |key,value| ?>
+              <tr>
+	        <td>#{key.group.name}</td>
+                <td>#{key[:manager]} </td>
+                <td>#{key[:description]}</td>
+                <td>#{key[:revision_cabling]}</td>
+                <td>#{key[:sending_cabling]}</td>
+                <td>#{key[:created_at]}</td>
+                <td>#{ConnectionsController.a('Editar',:edit,key[:id])}</td>
+                <td>#{ConnectionsController.a('Eliminar',:delete,key[:id])}</td>
+              </tr>
+             <?r end ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

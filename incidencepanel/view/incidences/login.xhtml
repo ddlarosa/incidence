@@ -1,0 +1,40 @@
+<style type="text/css">
+  form p
+  {
+      margin-bottom: 2px;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+
+        <p>
+          Type your username and password. If you don't have one,
+          please contact <a href="http://www.musicam.es">Musicam</a>.
+        </p>
+
+        <form method="post">
+          <p>
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="username" value="#{@username}" />
+          </p>
+          <p>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" />
+          </p>
+          <p>
+            <label for="login">&nbsp;</label>
+            <input type="submit" name="login" value="Log in" />
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $("#username").focus();
+</script>

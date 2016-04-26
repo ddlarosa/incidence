@@ -1,0 +1,45 @@
+# 001_initial.rb                                          -*- coding: utf-8 -*-
+
+Sequel.migration do
+  up do
+    create_table(:motives) do
+      primary_key :id
+      String :name, {null: false, unique: true}
+      check{char_length(name) > 0}
+    end
+   
+    create_table(:incidences) do 
+      primary_key :id
+      String :name, {null: false, unique: true}
+      String :branch_tiz
+      String :phone_tiz
+      Integer:branch
+      String :location
+      String :address
+      String :task_create_from
+      String :name_of_claimant
+      String :phone_of_claimant
+      String :problem
+      String :problem_description
+      String :pending
+      String :solution
+      String :realized_work
+      TrueClass :sended_ack
+      TrueClass :sended_pending
+      TrueClass :sended_solution
+      Time   :created_at
+      Time   :modified_at
+      Time   :acknowledgment_date, null:true
+      Time   :pending_date, null:true
+      Time   :solution_date, null:true
+      foreign_key :motive_id, :motives
+      check{char_length(name) > 0}
+    end
+
+  end
+
+  down do
+    drop_table :incidences
+    drop_table :motives
+  end
+end

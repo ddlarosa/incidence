@@ -1,0 +1,73 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Nueva Incidencia</h2>
+        <br/>
+        <form method="post" action="#{IncidencesController.r(:save)}">
+          <p>
+            <label for="name">Incidencia:</label>
+            <input type="text" name="name" id="name"/>
+          </p>
+          <p>
+            <label for="task_created_from">Creada por</label>
+            <input type="text" id="task_created_from" name="task_created_from"/>
+           </p>
+          <p>
+            <label for="branch_tiz">Tiz del Centro</label>
+            <input type="text" id="branch_tiz" name="branch_tiz"/>
+          </p>
+          <p>
+           <label for="phone_tiz">Telefono Tiz</label>
+           <input type="text" id="phone_tiz" name="phone_tiz"/>
+          <p>
+          <p>
+           <label for="branch">Centro</label>
+           <input type="text" id="branch" name="branch"/>
+          <p>
+          <p>
+           <label for="location">Denominacion</label>
+           <input type="text" id="location" name="location"/>
+          <p>
+          <p>
+           <label for="address">Direccion</label>
+            <textarea name="address" id="address" cols="40" rows="5" placeholder="Optional description"></textarea>
+          <p>
+          <p>
+           <label for="name_of_claimant">Solicitante</label>
+           <input type="text" id="name_of_claimant" name="name_of_claimant"/>
+          </p>
+          <p>
+           <label for="phone_of_claimant">Tlf Solicitante</label>
+           <input type="text" id="phone_of_claimant" name="phone_of_claimant"/>
+          </p>
+          <p>
+           <label for="problem">Sintoma</label>
+           <input type="text" id="problem" name="problem"/>
+          </p>
+          <p>
+           <label for="problem_description">Descripcion</label>
+           <textarea name="problem_description" id="problem_description" cols="40" rows="5" placeholder="Optional description"></textarea>
+          </p>
+          <p>
+            <div style="width: 100%;">
+              <span style="float: left;">
+                <input type="submit" name="save" id="save" value="Save" />
+                <input type="submit" name="save" onclick="sending_email()" id="save" value="Save y Send" />
+              </span>
+            </div>
+            <div style="clear: both;"></div>
+          </p>
+          <input type="hidden" id="send_email" name="send_email" value="0"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function sending_email(){
+    window.alert("HOLA")
+    email_send_node = document.getElementById("send_email");
+    email_send_node.value=1;
+  }
+</script>

@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+
+        <form method="post" action="#{UsersController.r(:save)}">
+          <input type="hidden" name="id" id="id" value="#{@user.id}" />
+          <p>
+            <label for="username">Username:</label>
+            <?r if !user.can_modify_users_for_group? user.group ?>
+            <input type="text" name="username" id="username" value="#{@user.username}" autocomplete="off" readonly style="border: none;"  />
+            <?r else ?>
+            <input type="text" name="username" id="username" value="#{@user.username}" autocomplete="off" />
+            <?r end ?>
+          </p>
+          <p>
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" autocomplete="off" />
+          </p>
+          <p>
+            <label for="group">Group:</label>
+            <?r if !user.can_modify_users_for_group? user.group ?>
+            <input type="hidden" name="group" id="group" value="#{user.group.id}" />
+            <input name="txt_group" value="#{user.group.name}" readonly style="border: none;"  />
+            <?r else ?>
+            <select name="group" id="group" >
+              <option value="">(please select)</option>
+              <?r @groups.each do |g| ?>
+              <option value="#{g[:id]}" #{'selected="selected"' if g[:id] == @user.group_id}>
+                #{"&nbsp;" * g[:level] + g[:name].escape}
+              </option>
+              <?r end ?>
+            </select>
+            <?r end ?>
+          </p>
+          <p>
+            <label for="role">Role:</label>
+            <?r if !user.can_modify_users_for_group? user.group ?>
+            <input type="hidden" name="role" id="role" value="#{user.role.id}" />
+            <input name="txt_role" value="#{user.role.name}" readonly style="border: none;"  />
+            <?r else ?>
+            <select name="role" id="role">
+              <option value="">(please select)</option>
+              <?r Role.each do |r| ?>
+              <option value="#{r.id}" #{'selected="selected"' if r.id == @user.role_id}>
+                #{r.name.escape}
+              </option>
+              <?r end ?>
+            </select>
+            &nbsp;&nbsp;<em>#{RolesController.a('(roles and permissions)', nil)}</em>
+            <?r end ?>
+          </p>
+          <p>
+            <label for="save">&nbsp;</label>
+            <input type="submit" name="save" value="Save" />
+          </p>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+.listing
+{
+    font-size: 0.9em;
+}
+
+.listing table
+{
+    width: 100%;
+}
+
+.listing th
+{
+    padding: 0.2em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: left;
+}
+
+.listing td
+{
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.listing tr:hover td
+{
+    background-color: #def;
+}
+
+.pager
+{
+    text-align: right;
+    margin-right: 10px;
+}
+
+.pag_first, .pag_prev, .pag_current, .pag_number, .pag_next, .pag_last, .pag_grey
+{
+    padding: 0.3em;
+}
+
+.pag_current
+{
+    font-weight: bold;
+}
+
+.grey
+{
+    color: #999;
+}
+
+.hierarchy
+{
+    /* border: 1px solid; */
+    margin-bottom: 2em;
+}
+
+.hierarchy ul
+{
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+}
+
+.root
+{
+}
+
+.hierarchy li
+{
+    list-style-type: none;
+    margin-top: 0.2em;
+    margin-left: 20px;
+    margin-right: 0;
+    margin-bottom: 0;
+}

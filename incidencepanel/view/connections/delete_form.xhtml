@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Eliminar Conectividad #{@group[:name]}</h2>
+        <br/>
+        <form method="post" action="#{ConnectionsController.r(:delete)}">
+          <p>
+            <label for="group">Centro</label>
+            <input readonly="readonly" type="text" name="group" id="group" value="#{@group[:name]}"/>
+          </p>
+          <p>
+            <label for="manager">Manager</label>
+            <input type="text" name="manager" id="manager" readonly="readonly" value="#{@connection[:manager]}"/>
+          </p>
+          <p>
+            <label for="description">Descripcion</label>
+            <textarea name="description" id="description" readonly="readonly" cols="40" rows="5">#{@connection[:description]}</textarea>
+          </p>
+          <p>
+            <label for="sending_cabling">Envio de cableado</label>
+            <?r if @connection[:sending_cabling] ?>
+               <input type="checkbox" readonly="readonly" name="sending_cabling" value="t" checked="checked"/>
+            <?r else ?>
+               <input type="checkbox" readonly="readonly" name="sending_cabling" value="t"/>
+            <?r end ?>
+          </p>
+          <p>
+            <label for="revision_cabling">Revision de cableado</label>
+            <?r if @connection[:revision_cabling] ?>
+               <input type="checkbox" readonly="readonly" name="revision_cabling" value="t" checked="checked"/>
+            <?r else ?>
+               <input type="checkbox" readonly="readonly" name="revision_cabling" value="t"/>
+            <?r end ?>
+          </p>
+            <div style="width: 100%;">
+              <span style="float: left;">
+                <input type="submit" name="save" id="save" value="Eliminar" />
+              </span>
+            </div>
+            <div style="clear: both;"></div>
+          </p>
+          <input type="hidden" id="id" name="id" value="#{@connection.id}"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

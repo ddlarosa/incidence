@@ -1,0 +1,126 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Gestionar Incidencia</h2>
+        <br/>
+        <form method="post" action="#{IncidencesController.r(:modify_incidence)}">
+          <p>
+            <label for="modelo">Modelo</label>
+            <select name="model">
+               <?r if @incidence[:model] =="RM6" ?>
+                 <option selected="selected" value="RM6">RM6</option>
+               <?r else ?>
+                 <option value="RM6">RM6</option>
+               <?r end ?>
+
+               <?r if @incidence[:model] =="RM8" ?>
+                 <option selected="selected" value="RM8">RM8</option>
+               <?r else ?>
+                 <option value="RM8">RM8</option>
+               <?r end ?>
+               
+               <?r if @incidence[:model] =="AMPLIFICADOR" ?>
+                 <option selected="selected" value="AMPLIFICADOR">Amplificador</option>
+               <?r else ?>
+                 <option value="AMPLIFICADOR">Amplificador</option>
+               <?r end ?>
+
+               <?r if @incidence[:model] =="OTROS" ?>
+                 <option selected="selected" value="OTROS">Otras Causas</option>
+               <?r else ?>
+                 <option value="OTROS">Otras Causas</option>
+               <?r end ?>
+
+            </select>
+          </p>
+          <p>
+            <label for="name">Incidencia:</label>
+            <input type="text" name="name" id="name" value="#{@incidence.name}"/>
+          </p>
+          <p>
+            <label for="task_created_from">Creada por</label>
+            <input type="text" id="task_created_from" name="task_created_from" value="#{@incidence.task_create_from}"/>
+           </p>
+          <p>
+            <label for="branch_tiz">Tiz del Centro</label>
+            <input type="text" id="branch_tiz" name="branch_tiz" value="#{@incidence.branch_tiz}"/>
+          </p>
+          <p>
+           <label for="phone_tiz">Telefono Tiz</label>
+           <input type="text" id="phone_tiz" name="phone_tiz" value="#{@incidence.phone_tiz}"/>
+          <p>
+          <p>
+           <label for="branch">Centro</label>
+           <input type="text" id="branch" name="branch" value="#{@incidence.branch}"/>
+          <p>
+          <p>
+           <label for="location">Denominacion</label>
+           <input type="text" id="location" name="location" value="#{@incidence.location}"/>
+          <p>
+          <p>
+           <label for="address">Direccion</label>
+            <textarea name="address" id="address" cols="40" rows="5" placeholder="Optional description" >#{@incidence.address}</textarea>
+          <p>
+          <p>
+           <label for="name_of_claimant">Solicitante</label>
+           <input type="text" id="name_of_claimant" name="name_of_claimant" value="#{@incidence.name_of_claimant}"/>
+          </p>
+          <p>
+           <label for="phone_of_claimant">Tlf Solicitante</label>
+           <input type="text" id="phone_of_claimant" name="phone_of_claimant" value="#{@incidence.phone_of_claimant}"/>
+          </p>
+          <p>
+           <label for="problem">Sintoma</label>
+           <input type="text" id="problem" name="problem" value="#{@incidence.problem}"/>
+          </p>
+          <p>
+           <label for="problem_description">Descripcion</label>
+           <textarea name="problem_description" id="problem_description" cols="40" rows="5" placeholder="Optional description">#{@incidence.problem_description}</textarea>
+          </p>
+          <p>
+           <label for="pending">Texto Pendiente</label>
+           <textarea name="pending" id="pending" cols="40" rows="5" placeholder="Optional description">#{@incidence.pending}</textarea>
+          </p>
+          <p>
+           <label for="solution">Texto Solucion</label>
+           <textarea name="solution" id="solution" cols="40" rows="5" placeholder="Optional description">#{@incidence.solution}</textarea>
+          </p>
+           <p>
+           <label for="solution">Texto Revision Musicam</label>
+           <textarea name="review" id="review" cols="40" rows="5" placeholder="Optional description">#{@incidence.review}</textarea>
+          </p>
+          <p>
+           <label for="motive_id">Tipo</label>
+           <select for="motive_id" name="motive_id">
+             <?r @motives.each do |key,value| ?>
+               <?r if key[:id]== @incidence.motive_id ?> 
+                 <option selected="selected" value="#{key[:id]}"  >#{key[:name]}</option>
+               <?r else ?>
+                 <option value="#{key[:id]}"  >#{key[:name]}</option>
+               <?r end ?>
+             <?r end ?>
+           </select>           
+          </p> 
+          <p>
+            <div style="width: 100%;">
+              <span style="float: left;">
+                <input type="submit" name="save" id="save" value="Save" />
+                <input type="submit" name="save" onclick="sending_email()" id="save" value="Save y Send" />
+              </span>
+            </div>
+            <div style="clear: both;"></div>
+          </p>
+          <input type="hidden" id="task_id" name="task_id" value="#{@incidence.id}"/>
+          <input type="hidden" id="send_email" name="send_email" value="0"/>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+  function sending_email(){
+    email_send_node = document.getElementById("send_email");
+    email_send_node.value=1;
+  }
+</script>

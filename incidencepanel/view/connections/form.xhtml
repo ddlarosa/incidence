@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Nueva Conectividad</h2>
+        <br/>
+        <form method="post" action="#{ConnectionsController.r(:save)}">
+          <p>
+            <label for="group">Centro</label>
+            <select name="name">
+              <?r @groups.each do |key,value| ?>
+                <option value="#{key[:name]}">#{key[:name]}</option>
+              <?r end ?>
+            </select>
+          </p>
+          <p>
+            <label for="manager">Manager</label>
+            <input type="text" name="manager" id="manager"/>
+          </p>
+          <p>
+            <label for="description">Descripcion</label>
+            <textarea name="description" id="description" cols="40" rows="5"></textarea>
+          </p>
+          <p>
+            <label for="revision_cabling">Revision de cableado</label>
+            <input type="checkbox" name="revision_cabling" value="t"/>
+          </p>
+          <p>
+            <label for="sending_cabling">Envio de cableado</label>
+            <input type="checkbox" name="sending_cabling" value="t"/>
+          </p>
+            <div style="width: 100%;">
+              <span style="float: left;">
+                <input type="submit" name="save" id="save" value="Save" />
+              </span>
+            </div>
+            <div style="clear: both;"></div>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

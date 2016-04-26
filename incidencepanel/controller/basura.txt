@@ -1,0 +1,29 @@
+
+  def destroy
+
+    @connection=Connection[:id => request.params['id']]
+
+    error=""
+    sucess=""
+
+    begin
+
+      if @connection.nil?
+        flash[:error] = 'Error al eliminar la conexion'
+        raise "Error al eliminar la conexion"
+      end
+
+      @connecion.destroy
+
+      sucess = "Conexion eliminada correctamente"
+      flash[:success] = success
+      redirect ConnectionsController.r(nil)
+
+    rescue => e
+     Ramaze::Log.error e
+     error+="Error al crear la conexion"
+     flash[:error] = "#{error}: #{e}"
+     redirect ConnectionsController.r(nil
+    end
+
+  end

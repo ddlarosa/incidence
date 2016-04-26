@@ -1,0 +1,183 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+body
+{
+    background: url('../images/bg.png') repeat top left;
+    border-top: 5px solid #236;
+    color: #444;
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode', Verdana, Arial, sans-serif;
+    font-size: 14px;
+}
+
+.content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.error
+{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding-left: 20px;
+    color: #c03;
+}
+
+.success
+{
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding-left: 20px;
+    color: #690;
+}
+
+#header
+{
+    background-color: #fff;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+    #header h1
+    {
+        font-size: 36px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+
+#loginname
+{
+    background-color: #fff;
+    text-align: right;
+    font-size: 12px;
+}
+
+
+.groupname
+{
+    vertical-align: -8px;
+}
+
+    .groupname a
+    {
+        color: #fff;
+        text-decoration: none;
+        background-color: #236;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 4px 8px;
+        border-radius: 4px;
+   }
+
+        .groupname a:hover
+        {
+            color: #fff;
+            background-color: #57a;
+        }
+
+
+#menu
+{
+    background-color: #236;
+    height: 40px;
+    padding: 0px 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+    #menu nav ul
+    {
+        float: right;
+        margin-right: 15px;
+        margin-left: 0px;
+    }
+
+        #menu nav ul li
+        {
+            float: left;
+            font-size: 16px;
+            list-style-type: none;
+            margin-right: 10px;
+        }
+
+        #menu nav ul li:last-child
+        {
+            margin-right: 0px;
+        }
+
+            #menu nav ul li a
+            {
+                color: #fff;
+                display: block;
+                height: 30px;
+                padding: 10px 10px 0px 10px;
+                text-decoration: none;
+            }
+
+            #menu nav ul li a:hover
+            {
+                background-color: #57a;
+            }
+
+
+/* classes for playlist jquery-ui datepicker, see js/playlist-days.js */
+.day-with-pl-ok
+{
+    background: #390;
+}
+    .day-with-pl-ok a
+    {
+        opacity: 0.7;
+    }
+.day-with-pl-nofiles
+{
+    background: #bb3;
+}
+    .day-with-pl-nofiles a
+    {
+        opacity: 0.7;
+    }
+.day-with-pl-empty
+{
+    background: #741;
+}
+    .day-with-pl-empty a
+    {
+        opacity: 0.7;
+    }
+.day-without-pl
+{
+    background: #c03;
+}
+    .day-without-pl a
+    {
+        opacity: 0.7;
+    }
+
+
+#footer
+{
+    text-align: center;
+    font-size: 8px;
+    margin-bottom: 8px;
+}
+
+
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+    body {
+    }
+
+}

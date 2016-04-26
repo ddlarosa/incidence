@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+  <head>
+    <title></title>
+    <script language="JavaScript" type="text/javascript" src="/js/jquery-2.2.0.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script>
+      $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Incidences from 2015'
+        },
+        subtitle: {
+            text: 'Source: Incidences Web App Mercadona'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Incidences'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Incidence in 2015: <b>{point.y:.1f} </b>'
+        },
+        series: [{
+            name: 'Incidence',
+            data: [
+                ['Enero', 23.7],
+                ['Febrero', 16.1],
+                ['Marzo', 14.2],
+                ['Abril', 14.0],
+                ['Mayo', 12.5],
+                ['Junio', 12.1],
+                ['Julio', 11.8],
+                ['Agosto', 11.7],
+                ['Septiembre', 11.1],
+                ['Octubre', 11.1],
+                ['Septiembre', 10.5],
+                ['Noviembre', 10.4],
+                ['Diciembre', 10.0]
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+});
+    </script>
+  </head>
+  <body>
+    <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+  <body> 
+</html>

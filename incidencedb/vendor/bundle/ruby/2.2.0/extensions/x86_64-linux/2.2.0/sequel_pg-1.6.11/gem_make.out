@@ -1,0 +1,18 @@
+/usr/bin/ruby2.2 -r ./siteconf20160421-9005-hqrhl9.rb extconf.rb
+checking for main() in -lpq... yes
+checking for libpq-fe.h... yes
+checking for PQsetSingleRowMode()... yes
+creating Makefile
+
+make "DESTDIR=" clean
+
+make "DESTDIR="
+compiling sequel_pg.c
+sequel_pg.c: In function ‘spg__yield_each_row’:
+sequel_pg.c:873:11: warning: variable ‘conn’ set but not used [-Wunused-but-set-variable]
+   PGconn *conn;
+           ^
+linking shared-object sequel_pg.so
+
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 sequel_pg.so ./.gem.20160421-9005-1f969a7

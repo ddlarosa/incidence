@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <div class="content">
+        <h2>Información de la incidencia #{@incidence.name}</h2>
+        <ul>
+          <li>TASK: <strong>#{@incidence.name}</strong></li>
+          <li>Tiz de Centro: <strong>#{@incidence.branch_tiz}</strong></li>
+          <li>Telefono Tiz: <strong>#{@incidence.phone_tiz}</strong></li>
+          <li>Nº Centro: <strong>#{@incidence.branch}</strong></li>
+          <li>Denominacion: <strong>#{@incidence.location}</strong></li>
+          <li>Direccion: <strong>#{@incidence.address}</strong></li>
+          <li>Tarea Creada Por: <strong>#{@incidence.task_create_from}</strong></li>
+          <li>Nombre Solicitante: <strong>#{@incidence.name_of_claimant}</strong></li>
+          <li>Telefono Solicitante: <strong>#{@incidence.phone_of_claimant}</strong></li><br/>
+          <li>Sintoma: <strong>#{@incidence.problem}</strong></li><br/>
+          <li>Problema: <strong>#{@incidence.problem_description}</strong></li><br/>
+          <li>Solucion: <strong>#{@incidence.solution}</strong></li><br/>
+          <li>Trabajo realizado: <strong>#{@incidence.solution}</strong></li><br/>
+          <li>Fecha de Creación: <strong>#{@incidence.created_at}</strong></li>
+          <li>Fecha de Modificación: <strong>#{@incidence.modified_at}</strong></li>
+          <li>Fecha de Acuse: <strong>#{@incidence.acknowledgment_date}</strong> <strong>Enviado #{@incidence.sended_ack}</strong></li>
+          <li>Fecha Pendiente: <strong>#{@incidence.pending_date}</strong><strong>Enviado #{@incidence.sended_ack}</strong></li>
+          <li>Fecha Solucion: <strong>#{@incidence.solution_date}</strong><strong>Enviado #{@incidence.sended_solution}</strong></li>
+        </ul>
+       </div>
+    </div>
+  </div>
+</div>
+

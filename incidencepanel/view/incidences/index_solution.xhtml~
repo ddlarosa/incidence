@@ -1,0 +1,60 @@
+<div classted_at="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+       <div class="listing">
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Centro</th>
+                <th>Descripcion</th>
+                <th>Solucion</th>
+                <th>Fecha alta</th>
+                <th>Fecha solucion</th>
+                <th>Enviado</th>
+                <th>Action</th>
+                <th>Correo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?r @incidences.each do |key,value| ?>
+              <tr>
+                <td>#{IncidencesController.a(key[:name],:details,key[:id])} </td>
+                <td>#{key[:branch]}</td>
+                <td>#{key[:problem]}</td>
+                <td>#{key[:solution]}</td>
+                <td>#{key[:created_at]}</td>
+                <td>#{key[:solution_date]}</td>
+                <td>
+                <?r if key[:motive_id].to_i==1 ?>
+                 #{key[:sended_ack]}
+                <?r end ?>
+                <?r if key[:motive_id].to_i==2 ?>
+                 #{key[:sended_pending]}
+                <?r end ?>
+                <?r if key[:motive_id].to_i==3 ?>
+                 #{key[:sended_solution]}
+                <?r end ?>
+                </td>
+                <td>#{IncidencesController.a('Editar',:edit,key[:id])}</td>
+                <td>
+                <?r if key[:motive_id].to_i==1 ?>
+                  #{IncidencesController.a('Enviar',:sending_ack,key[:id])} </td>
+                <?r end ?>
+                <?r if key[:motive_id].to_i==2 ?>
+                  #{IncidencesController.a('Enviar',:sending_pending,key[:id])} </td>
+                <?r end ?>
+                <?r if key[:motive_id].to_i==3 ?>
+                  #{IncidencesController.a('Enviar',:sending_solution,key[:id])} </td>
+                <?r end ?>  
+                </td>
+              </tr>
+             <?r end ?>
+            </tdbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

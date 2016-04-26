@@ -1,0 +1,103 @@
+<script>
+  $(function () {
+    $('#container').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: 'Incidences from Mercadona in RM8'
+        },
+        subtitle: {
+            text: 'Source: Incidences Web App Mercadona'
+        },
+        xAxis: {
+            type: 'category',
+            labels: {
+                rotation: -45,
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: 'Incidences'
+            }
+        },
+        legend: {
+            enabled: false
+        },
+        tooltip: {
+            pointFormat: 'Incidence in MERCADONA: <b>{point.y:.1f} </b>'
+        },
+        series: [{
+            name: 'Incidence',
+            data: [
+                <?r @stats.each do |key,value| ?>
+                  [#{key[:year]},#{key[:number]}],
+                <?r end ?>
+            ],
+            dataLabels: {
+                enabled: true,
+                rotation: -90,
+                color: '#FFFFFF',
+                align: 'right',
+                format: '{point.y:.1f}', // one decimal
+                y: 10, // 10 pixels down from the top
+                style: {
+                    fontSize: '13px',
+                    fontFamily: 'Verdana, sans-serif'
+                }
+            }
+        }]
+    });
+});
+</script>
+
+<div classted_at="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <div class="listing">
+          <div>
+            <form method="post" action="#{IncidencesController.r(:rm8_stats_month)}">
+            <label for="modelo">Year</label>
+            <select name="year">
+              <option value="2013">2013</option>
+              <option value="2014">2014</option>
+              <option value="2015">2015</option>
+              <option value="2016">2016</option>
+            </select>
+            <input type="hidden" id="model" name="model" value="RM8"/>
+            <input type="submit"/>
+           </form>
+          </div>
+          <br/><br/>
+          <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+           <br/><br/>
+         <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Percentage</th>
+                <th>Average Time to Resolve </th>
+              </tr>
+            </thead>
+            <tbody>
+              <?r @stats.each do |key,value| ?>
+              <tr>
+                <td>#{key[:year]}</td>
+                <td>#{(key[:number].to_f/1600.to_f)} %</td>
+                <td>#{@avg_time_incidence[key[:year]]} days</td>
+              </tr>
+              <?r end ?>
+            </tbody>
+         </table>
+         <p></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 

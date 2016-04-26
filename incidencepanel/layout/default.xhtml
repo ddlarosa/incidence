@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>#{@title}</title>
+
+    #{css('reset')}
+    <!-- 1140px Grid styles for IE -->
+    <!--[if lte IE 9]>#{css('1140.ie')}<![endif]-->
+    #{css('1140')}
+    #{css('layout')}
+    #{css('text')}
+    #{css('listing')}
+    #{css('theme/jquery-ui')}
+    #{js('css3-mediaqueries')}
+    #{js('jquery')}
+    #{js('jquery-ui')}
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+  </head>
+  <body>
+
+    <div class="container" id="header">
+      <div class="row">
+        <div class="eightcol">
+          <h1>#{@title}&nbsp;</h1>
+        </div>
+        <div class="fourcol last">
+          <div id="loginname">
+            <?r if session[:logged_in] ?>
+            #{IncidencesController.a('log out', :logout)}
+            <?r end ?>
+          </div>
+        <div class="fourcol last">
+          <div id="loginname">
+          </div>
+        </div>
+      </div>
+    </div>
+    <?r if session[:logged_in] ?>
+    <div class="container">
+      <div class="row">
+        <div class="twelvecol">
+          <div id="menu">
+            <nav>
+              <ul>
+                <li>#{IncidencesController.a('Incidencias Pendientes',nil )}</li>
+                <li>#{IncidencesController.a('Incidencias Resueltas','index_solution' )}</li>
+                <li>#{ConnectionsController.a('Conexiones','#' )}</li>
+                <li>#{IncidencesController.a('RM6 Stats','rm6_stats' )}</li>
+                <li>#{IncidencesController.a('RM8 Stats','rm8_stats' )}</li>
+                <!-- </li>Estadisticas RM8</li> -->
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    <?r end ?> 
+    </div>
+    <?r [:success, :error].each do |type| ?>
+      <?r if flash[type] ?>
+      <div class="container">
+        <div class="row">
+          <div class="twelvecol">
+            <p class="#{type}">#{flash[type]}</p>
+          </div>
+        </div>
+      </div>
+      <?r end ?>
+    <?r end ?>
+
+#{@content}
+    <div class="container">
+      <div class="row">
+        <div class="twelvecol">
+          <div id="footer">
+            <footer>
+              RMXpanel 0.3.5
+              &nbsp;&middot;&nbsp;
+              <a style="text-decoration: none" href="http://www.musicam.es">MUSICAM</a>
+              &nbsp;&middot;&nbsp;
+              <a style="text-decoration: none" href="http://www.orbital-aerospace.com">Orbital Aerospace</a>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
