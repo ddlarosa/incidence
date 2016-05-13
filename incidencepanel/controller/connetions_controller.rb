@@ -152,5 +152,51 @@ class ConnectionsController < Controller
    @connection=Connection[:id=>connection_id]
    
  end
+
+ def send_revision_cabling 
+
+   #Get params
+   musicam_worker=request.params['musicam_worker']
+   connection_id=request.params['connection_id']
+   @connection=Connection[:id => connection_id]
+   branch=@connection.group.name
+   manager=@connection.manager
+   error=""
+
+   begin
+
+     if @connection.nil?
+       flash[:error] = 'Error al enviar la revision de cableado'
+       raise "Error al enviar la revision de cableado"
+     end
+      
+     success="Revision de cableado para el centro #{branch} enviada correctamete"
+
+     rescue => e
+       Ramaze::Log.error e
+       error+="Error al crear la inicidencia"
+       flash[:error] = "#{error}: #{e}"
+       redirect_referrer
+    end
+
+    begin   
+
+      @email=MusicamEmailConnection.new(EMAIL_CONFIG_CONNECTION)
+        
+      @email.clean_smtp_cache
+      @email.send_ack(@connection,musicam_worker) 
+         
+    rescue => e
+      Ramaze::Log.error e
+      error+="La revision de cabledo no ha podido enviarse"
+      flash[:error] = "#{error}: #{e}"
+      flash[:success] = success
+      redirect_referrer
+    end     
+
+      flash[:success] = success
+      redirect ConnectionsController.r(nil)
+
+ end
  
 end

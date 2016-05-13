@@ -26,9 +26,11 @@ require 'pp'
 Ramaze.options.roots = [__DIR__]
 
 #EMAIL CONFIGURATION
-EMAIL_CONFIG_CUSTOM=YAML.load_file( "#{Ramaze.options.roots[0]}/config/email_config_custom.yaml")
 EMAIL_CONFIG_BASE=YAML.load_file( "#{Ramaze.options.roots[0]}/config/email_config.yaml")
+EMAIL_CONFIG_CUSTOM=YAML.load_file( "#{Ramaze.options.roots[0]}/config/email_config_custom.yaml")
+EMAIL_CONFIG_CUSTOM_CONNECTION=YAML.load_file( "#{Ramaze.options.roots[0]}/config/email_config_custom_connetion.yaml")
 EMAIL_CONFIG=EMAIL_CONFIG_CUSTOM || EMAIL_CONFIG_BASE
+EMAIL_CONFIG_CONNECTION=EMAIL_CONFIG_CUSTOM_CONNECTION || EMAIL_CONFIG_BASE
 
 # Initialize logger
 log_dir = "#{Ramaze.options.roots[0]}/log"
