@@ -182,9 +182,11 @@ class ConnectionsController < Controller
     begin   
 
       @email=MusicamEmailConnection.new(EMAIL_CONFIG_CONNECTION)
-        
       @email.clean_smtp_cache
       @email.send_ack(@connection,musicam_worker) 
+      @connection.revision_cabling=true
+      @connection.save
+      
          
     rescue => e
       Ramaze::Log.error e
