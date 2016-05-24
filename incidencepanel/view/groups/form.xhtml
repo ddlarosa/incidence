@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Nuevo centro</h2>
+        <br/>
+        <form method="post" action="#{GroupsController.r(:save)}">
+          <p>
+            <label for="name">Centro:</label>
+            <input type="text" name="name" id="name"></input>
+          </p>
+          <p>
+           <label for="ip">IP</label>
+           <input type="text" id="ip" name="ip"></input>
+          </p>
+          <p>
+            <label for="description">Descripcion:</label>
+            <textarea name="description" id="description"></textarea>
+          </p>
+          <p>
+           <label for="Provincie">Provincia</label>
+           <input type="text" id="province" name="province"/>
+          <p>
+          <p>
+           <label for="location">Localidad</label>
+           <input type="text" id="location" name="location"/>
+          <p>
+          <p>
+           <label for="region">Region</label>
+           <input type="text" id="region" name="region"/>
+          <p>
+          <p>
+           <label for="phone">Telefono</label>
+           <input type="text" id="phone" name="phone"/>
+          </p>
+          <div style="width: 100%;">
+              <span style="float: left;">
+                <input type="submit" name="save" id="save" value="Save" />
+              </span>
+            </div>
+            <div style="clear: both;"></div>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

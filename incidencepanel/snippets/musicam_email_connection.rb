@@ -33,7 +33,9 @@ class MusicamEmailConnection
 @content = <<EOF
 From: #{@from}
 To: #{@to}
-subject: AVERIA INABENSA #{branch}
+subject: #{branch} AVERIA DE INABENSA
+
+A/A CAU:
 
 Soy #{musicam_worker} de departamento técnico  de Musicam, no hemos podido realizar una de nuestras descargas periódicas en el centro #{branch}.
 

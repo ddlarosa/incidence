@@ -6,3 +6,12 @@
 
 # Ignore bundler config.
 /.idea/workspace.xml
+
+#Ignore logs
+incidencepanel/log/*
+
+#Ignore custom files
+incidencepanel/config/email_config_custom.yaml
+incidencepanel/config/email_config_custom_connetion.yaml
+
+

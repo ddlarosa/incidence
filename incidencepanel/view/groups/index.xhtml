@@ -1,0 +1,42 @@
+<div classted_at="container">
+  <div class="row">
+    <div class="twelvecol">
+      <div class="content">
+        <h2>Groups</h2>
+        <p>
+          <ul>
+           <li>#{GroupsController.a('New',:new)}</li>
+          </ul>
+        </p>
+        <div class="listing">
+          <table>
+            <thead>
+              <tr>
+                <th>Centro</th>
+                <th>Telefono</th>
+                <th>Direccion</th>
+                <th>Provincia</th>
+                <th>Localidad</th>
+                <th>IP</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?r @groups.each do |key,value| ?>
+              <tr>
+                <td>#{key[:name]} </td>
+                <td>#{key[:phone]}</td>
+                <td>#{key[:address]}</td>
+                <td>#{key[:province]}</td>
+                <td>#{key[:location]}</td>
+                <td>#{key[:ip]}</td>
+                <td>#{GroupsController.a('Conectar',:create_connection,key[:id])},#{GroupsController.a('Editar',:update,key[:id])},#{GroupsController.a('Eliminar',:delete,key[:id])}</td>
+              </tr>
+             <?r end ?>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> 
